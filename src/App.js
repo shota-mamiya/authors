@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Router } from '@reach/router';
+import Detail from './views/Detail';
+import Main from './views/Main';
+import Update from './views/Update'
+import AuthorForm from './components/AuthorForm'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <AuthorForm path="/author/new"/>
+        <Main path="/author/"/>
+        <Detail path="/author/:id"/>
+        <Update path="/author/:id/edit"/>
+      </Router>
     </div>
   );
 }
